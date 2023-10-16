@@ -1,0 +1,36 @@
+﻿@page
+@model lr2.Pages.FormsModel
+@{
+    ViewData["Title"] = "Формы";
+}
+
+@{
+    string[] Poets = { "Пушкин", "Лермонтов", "Маяковский", "Есенин" };
+}
+
+<h1>Работа с формами</h1> 
+<div class="centerblock">
+    <fieldset>
+        <legend>Bыбop позта</legend> 
+        <div class="blockform">
+            <form method="post">
+                <select name="Poet">
+                    @foreach (var value in Poets)
+                    {
+                        <option value="@value">@value</option>
+                    }
+                </select>
+                <input type="submit" value="Ввести" class="submit" />
+            </form>
+            <div class="txt">
+                <textarea name="comment" id="comment" cols="50" rows="11">@Model.txtfile</textarea>
+            </div>
+        </div>
+        <div class="blockview">
+            <div class="img">
+                <img src="@Model.path" width="130" height="170" />
+            </div>
+        </div>
+    </fieldset>
+    
+</div>

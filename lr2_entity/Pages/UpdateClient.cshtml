@@ -1,0 +1,49 @@
+﻿@page
+@model lr2_entity.Pages.UpdateClientModel
+@{
+    ViewData["Title"] = "Update";
+
+    var id = UpdateClientModel.id;
+    var name = UpdateClientModel.name;
+    var firm = UpdateClientModel.firm;
+    var city = UpdateClientModel.city;
+    var phone = UpdateClientModel.phone;   
+}
+
+<h1>ID записи - @id</h1>
+<div class="container">
+    <form method="get" asp-page="UpdateClient" onsubmit='f2()'>
+        <input type="text" name="КодКлиента" value="@id" hidden>
+        <input type="text" name="operation_" value="update" hidden>
+
+        <label class="form-label">Фамилия</label>
+        <input type="text" name="Фамилия" value="@name">
+
+        <label class="form-label">Фирма</label>
+        <input type="text" name="Фирма" value="@firm">
+
+        <label class="form-label">Город</label>
+        <input type="text" name="Город" value="@city">
+        
+        <label class="form-label">Телефон</label>
+        <input type="text" name="Телефон" value="@phone">
+
+        <label id="prev" class="form-label" onclick="f1(1)">&#9668</label>
+        <input class="btn btn-outline-success" type="submit" value="Изменить запись в БД">
+        <label id="next" class="form-label" onclick="f1(2)">&#9658</label>
+    </form>
+</div>
+<script>
+    function f1(n) { 
+        var op = document.querySelectorAll("input")[1];
+        var submitBtn = document.querySelectorAll("input")[6]
+        if (n == 1) {
+            op.setAttribute("value", "prev");
+        } else {
+            op.setAttribute("value", "next");
+        }
+
+        submitBtn.click();
+        op.setAttribute("value", "update");
+    }
+</script>

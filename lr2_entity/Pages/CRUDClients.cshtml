@@ -1,0 +1,66 @@
+﻿@page
+@model lr2_entity.Pages.CRUDModel
+@{
+    ViewData["Title"] = "CRUD_Клиент";
+}
+
+<h1 class="mb-4">Таблица Клиент</h1>
+
+<div class="container" style="border: solid 2px silver; padding:2vh 2%;">
+    @{
+        KdaMovementOfGoodsContext db = new();
+        var A = db.Клиентs.Select(a => a);
+
+        foreach (var a in A)
+        {
+            string id    = a.КодКлиента.ToString();
+            string name  = a.Фамилия;
+            string firm  = a.Фирма;
+            string city  = a.Город;
+            string phone = a.Телефон;
+            string pars = "КодКлиента=" + id + "&Фамилия=" + name + "&Фирма=" + firm + "&Город=" + city + "&Телефон=" + phone;
+            string pars1 = "КодКлиента=" + id;
+
+            <div class="row mb-1" style="border: solid 2px silver; padding: 2px;">
+                <div class="col-2">@id</div>
+                <div class="col-2">@name</div>
+                <div class="col-2">@firm</div>
+                <div class="col-2">@city</div>
+                <div class="col-2">@phone</div>
+                <div class="col-1"><button class="btn btn-outline-warning" onclick="ClChange('@pars')">Изменить</button></div>
+                <div class="col-1"><button class="btn btn-outline-danger" style="width:100%;" onclick="ClDel('@pars1')">Удалить</button></div>
+            </div>
+        }
+    }
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2"><button class ="btn btn-outline-info" style="width:100%;" onclick=" ClAddShow()">Добавить запись</button></div>
+    </div>
+    
+</div>
+<br />
+<div id="add" style="display: none" class="container">
+    <form method="get" asp-page="CRUDClients" onsubmit='return confirm("Подтвердите добавление записи")'>
+
+        <label for="_name" class="form-label">Фамилия</label>
+        <input type="text" name="_name">
+
+        <label for="_firm" class="form-label">Фирма</label>
+        <input type="text" name="_firm">
+
+        <label for="_city" class="form-label">Город</label>
+        <input type="text" name="_city">
+
+        <label for="_phone" class="form-label">Телефон</label>
+        <input type="text"  name="_phone" placeholder="00-00-00">
+
+        <input class="btn btn-outline-success" type="submit" value="Добавить запись в БД" onclick="ClAdd()">
+    </form>
+</div>
+<script>
+    function ClChange(pars) { document.location.href = "UpdateClient?" + pars; }
+    function ClDel(pars)    { document.location.href = "CRUDClients?" + pars; }
+    var obj = document.getElementById("add");
+    function ClAddShow() { obj.setAttribute("style", "display: block"); }
+    function ClAdd() { obj.setAttribute("style", "display: none"); }
+</script>

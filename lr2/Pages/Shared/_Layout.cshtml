@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - lr2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bs.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header><h1>ЛР2 по ASP.NET</h1></header>
+
+    <nav>
+        <div class="block_nav">
+            <a asp-area="" asp-page="/Index" class="btn btn-sm btn-outline-primary" role="button">Главная</a>
+            <a asp-area="" asp-page="/Proverbs" class="btn btn-sm btn-outline-primary" role="button">Загрузка файлов</a>
+            <a asp-area="" asp-page="/Forms" class="btn btn-sm btn-outline-primary" role="button">Формы</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <h4>&copy; Карпенко 214.41 2023</h4>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="js/bs.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@page
+@model lr2.Pages.ProverbsModel
+@{
+    ViewData["Title"] = "Proverbs";
+}
+
+<h1>Пословицы</h1>
+<div class="centerblock">
+    <fieldset>
+        <legend>Загрузка пословиц из текстового файла</legend>
+        <span id="txt">
+            В текстовое поле ввести имя файла. По нажатию кнопки вывести посовицу в поле textarea
+        </span>
+        <br /><br />
+        <form method="post">
+            <label>Имя фaйла</label>
+            <input type="text" name="zad">
+            <input type="submit" value="Bвeсти" class="submit" />
+        </form>
+        <br />
+        <textarea name="comment" id="comment" cols="50" rows="2">@Model.txtfile</textarea>
+    </fieldset>
+</div>
