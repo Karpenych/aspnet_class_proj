@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Использование компонента UserInfo";
+}
+
+<div style="line-height:20px; font-size:13px; position:absolute; top:55px; width:90%; text-align:right;">
+    <b> @ViewData["Title"]</b><br>
+    @model lr3.ViewComponent.UserModel
+    @{
+        <span>
+            Пользователь: @Model.Login
+            <br> Администратор: @Model.IsAdmin
+        </span>
+    }
+</div>

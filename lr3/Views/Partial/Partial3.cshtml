@@ -1,0 +1,32 @@
+﻿<link rel="stylesheet" href="css/myStyle.css" />
+
+@{
+    ViewData["Title"] = "Partial3";
+}
+
+<ul class="list-group">
+    <li class="list-group-item st1" onclick="f(1)"> Вариант 1</li>
+    <li class="list-group-item st2" onclick="f(2)"> Вариант 2</li>
+    <li class="list-group-item st3" onclick="f(3)"> Вариант 3</li>
+    <li class="list-group-item st4" onclick="f(4)"> Вариант 4</li>
+    <li class="list-group-item    " onclick="f(5)"> Вариант 5 (исходный)</li>
+</ul>
+
+<form id="form1" action="/Demo" style="display:none">
+    <input id="par" type="text" value="" name="su">
+    <input id="sub" type='submit'>
+</form>
+
+<script>
+    function f(n) { 
+        if (n == 1) su = "st1";
+        if (n == 2) su = "st2";
+        if (n == 3) su = "st3";
+        if (n == 4) su = "st4";
+        if (n == 5) su = "";
+
+        document.getElementById("par").setAttribute("value", su);
+        document.getElementById("sub").click();
+    }
+</script>
+

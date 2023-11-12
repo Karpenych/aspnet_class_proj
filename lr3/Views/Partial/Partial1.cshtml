@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Partial1";
+}
+
+@{
+    var conStr = "Server=KOMPKARPENYCHA; Database=KDA_movement_of_goods; Integrated Security=True;";
+    var queryStr = "SELECT TOP(5) Название, ЦенаЗаЕд, ГородПроизв, Рас_счет FROM Товар";
+    var dataStrList = DB_Handler.ReadTableData(conStr, queryStr);
+    <div class="mb-3 " style="color: green;">Запрос: @queryStr</div>
+
+    foreach (var dataStr in dataStrList)
+    {
+        var sep_data = dataStr.Split(',');
+        var cols = "col-" + 12 / sep_data.Length;
+
+        <div class="row" >
+            @{
+                for (int i = 0; i < sep_data.Length; i++)
+                {
+                    <div class="@cols" style="border: solid 1px silver; padding: 2px; text-align: center; color: blueviolet;">@sep_data[i]</div>
+                } 
+            }
+        </div>
+    }
+}
+

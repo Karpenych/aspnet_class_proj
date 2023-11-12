@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model lr4.Models.UserInfo
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div><h4> Проверка данных на стороне клиента </h4></div>
+
+<form method="post">
+    <p>
+        <label asp-for="Name">Name</label>
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </p>
+    <p>
+        <label asp-for="Phone">Телефон</label>
+        <input asp-for="Phone" />
+        <span asp-validation-for="Phone"></span>
+    </p>
+    <p>
+        <label asp-for="Password">Пароль</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </p>
+    <p>
+        <label asp-for="PasswordConfirm">Подтверждение пароля</label>
+        <input asp-for="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </p>
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

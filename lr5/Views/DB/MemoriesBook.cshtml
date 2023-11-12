@@ -1,0 +1,25 @@
+﻿@model lr5.Models.Book
+@{
+    ViewData["Title"] = "MemoriesBook";
+}
+
+<h1>MemoriesBook</h1>
+
+<h4 class="mb-3">Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="#" method="post">
+            <div class="form-group">
+                <input name="Title" class="form-control" /><br>
+                <input name="AutID" class="form-control" value="@lr5.Controllers.DBController.ID_AUT" hidden />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

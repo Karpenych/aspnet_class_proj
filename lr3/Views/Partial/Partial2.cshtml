@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Partial2";
+}
+
+
+<div class="row">
+    <div class="col-6" >
+        <form method="get" action="https://localhost:7237/Partial/Partial2">
+            <div class="mb-3"><b style="color: yellowgreen;">Метод GET</b></div>
+
+            <div class="mb-3">
+                <label for="param1" class="form-label">Параметр 1</label>
+                <input type="text" class="form-control" id="param1" name="param1">
+            </div>
+
+            <div class="mb-3">
+                <label for="param2" class="form-label">Параметр 2</label>
+                <input type="text" class="form-control" id="param2" name="param2">
+            </div>
+
+            <div class="mb-3">
+                <input class="btn btn-outline-success" type="submit" style="width: 100%;" value="Передать данные методу контроллера" onclick="ClInfoShow()">
+            </div>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <form method="post" action="https://localhost:7237/Partial/Partial2">
+            <div class="mb-3"><b style="color: yellowgreen;">Метод POST</b></div>
+
+            <div class="mb-3">
+                <label for="param1" class="form-label">Параметр 1</label>
+                <input type="text" class="form-control" id="param1" name="param1">
+            </div>
+
+            <div class="mb-3">
+                <label for="param2" class="form-label">Параметр 2</label>
+                <input type="text" class="form-control" id="param2" name="param2">
+            </div>
+
+            <div class="mb-3">
+                <input class="btn btn-outline-success" type="submit" style="width: 100%;" value="Передать данные методу контроллера" onclick="ClInfoShow()">
+            </div>
+        </form>
+    </div>
+</div>
+
+@{
+    <div id="info" class="container">
+        <div>Метод: @lr3.Controllers.PartialController.Method</div>
+        <div>Число параметров: @lr3.Controllers.PartialController.ParamAmount</div>
+        <div>Параметр 1: @lr3.Controllers.PartialController.Param1</div>
+        <div>Параметр 2: @lr3.Controllers.PartialController.Param2</div>
+    </div>
+
+}
+
+
+
+
+  
+
